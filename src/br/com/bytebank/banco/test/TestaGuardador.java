@@ -5,22 +5,21 @@ import br.com.bytebank.banco.modelo.*;
 public class TestaGuardador {
 	
 	public static void main(String[] args) {
+		
+		
+		GuardadorDeReferencias guardaref = new GuardadorDeReferencias();
+		
 		ContaPoupanca cp = new ContaPoupanca(1408,241);
-		ContaCorrente cc0 = new ContaCorrente(1545,888);
-		ContaCorrente cc1 = new ContaCorrente(1545,888);
-		ContaCorrente cc2 = new ContaCorrente(1545,888);
+		guardaref.adiciona(cp);
 		
-		GuardadorDeContas guarda = new GuardadorDeContas();
+		Cliente cli = new Cliente();
+		guardaref.adiciona(cli);
 		
-		guarda.adiciona(cp);
-		guarda.adiciona(cc0);
-		guarda.adiciona(cc1);
-		guarda.adiciona(cc2);
+		guardaref.getRef(1);
 		
-		guarda.getConta(0);
-		guarda.getConta(1);
-		guarda.getConta(9);
-		System.out.println(guarda.getQtdElementos());
+		Conta ref = (Conta) guardaref.getRef(0);
+		
+		System.out.println(guardaref.getRef(0));
 		
 		
 
